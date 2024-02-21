@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    PlayerMovement playerMovement;
 
-    // Update is called once per frame
+    internal bool attack;
+
     void Update()
     {
-        
+        //Attack
+        if (Input.GetMouseButtonDown(0))
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        attack = true;
+        //playerMovement.enabled = false;
     }
 }

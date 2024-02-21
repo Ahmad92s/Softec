@@ -24,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     internal bool isMoving, isGrounded, isRunning, jump;
 
-    //Attack
-    internal bool attack;
-
     private void Update()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -58,12 +55,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             jump = true;
-        }
-
-        //Attack
-        if (Input.GetMouseButtonDown(0))
-        {
-            Attack();
         }
     }
 
@@ -111,10 +102,6 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log("here2");
 
         rb.AddForce(new Vector3(0f, jumpForce, 0f));
-    }
-    void Attack()
-    {
-        attack = true;
     }
 
     private void OnTriggerStay(Collider other)
