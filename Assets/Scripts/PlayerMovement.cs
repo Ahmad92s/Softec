@@ -22,9 +22,9 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction;
 
     //Movement
-    internal bool isMoving, isGrounded, isRunning, jump, dodge;
+    internal bool isMoving, isGrounded, isRunning, jump, jumpAnim, dodge;
 
-    private void Update()
+    private void LateUpdate()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -108,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            jumpAnim = true;
             rb.AddForce(new Vector3(0f, jumpForce, 0f));
         }
     }

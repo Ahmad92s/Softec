@@ -37,9 +37,10 @@ public class PlayerAnimation : MonoBehaviour
             playerMovement.dodge = false;
             animator.SetTrigger("Dodge");
         }
-        else if (playerMovement.jump)
+        else if (playerMovement.jumpAnim)
         {
-
+            playerMovement.jumpAnim = false;
+            animator.SetTrigger("Jump");
         }
     }
 
