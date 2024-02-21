@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 direction;
 
     //Movement
-    internal bool isMoving, isGrounded, isRunning, jump;
+    internal bool isMoving, isGrounded, isRunning, jump, dodge;
 
     private void Update()
     {
@@ -101,7 +101,15 @@ public class PlayerMovement : MonoBehaviour
         }
         Debug.Log("here2");
 
-        rb.AddForce(new Vector3(0f, jumpForce, 0f));
+        if (isRunning)
+        {
+            rb.AddForce(transform.forward * jumpForce);
+            dodge = true;
+        }
+        else
+        {
+            rb.AddForce(new Vector3(0f, jumpForce, 0f));
+        }
     }
 
     private void OnTriggerStay(Collider other)
