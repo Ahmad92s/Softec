@@ -32,10 +32,6 @@ public class PlayerCombat : MonoBehaviour
         isAttacking = true;
         timeSinceLastAttack = 0;
 
-
-        int attackNum = Random.Range(1, 3);
-        attackName = "attack" + attackNum.ToString();
-
         attack = true;
         //playerMovement.enabled = false;
     }

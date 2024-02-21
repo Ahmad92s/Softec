@@ -30,7 +30,7 @@ public class PlayerAnimation : MonoBehaviour
 
         if (playerCombat.attack)
         {
-            Attack(playerCombat.attackName);
+            Attack("attack1");
         }
         if (playerMovement.dodge)
         {

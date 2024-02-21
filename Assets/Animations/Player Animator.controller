@@ -389,9 +389,6 @@ AnimatorStateMachine:
     m_State: {fileID: -4358026732538046154}
     m_Position: {x: -110, y: 650, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 8752325539556177267}
-    m_Position: {x: 410, y: 670, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -4291412936293934120}
     m_Position: {x: 410, y: 540, z: 0}
   - serializedVersion: 1
@@ -408,7 +405,7 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 530, y: 100, z: 0}
+  m_AnyStatePosition: {x: 400, y: 100, z: 0}
   m_EntryPosition: {x: -80, y: 90, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -775,7 +772,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stable Sword Outward Slash
+  m_Name: Stable Sword Inward Slash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -796,37 +793,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!206 &5849874873952108459
-BlendTree:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Blend Tree
-  m_Childs:
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 0
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Idle Blend
-    m_Mirror: 0
-  - serializedVersion: 2
-    m_Motion: {fileID: 0}
-    m_Threshold: 1
-    m_Position: {x: 0, y: 0}
-    m_TimeScale: 1
-    m_CycleOffset: 0
-    m_DirectBlendParameter: Idle Blend
-    m_Mirror: 0
-  m_BlendParameter: Idle Blend
-  m_BlendParameterY: Idle Blend
-  m_MinThreshold: 0
-  m_MaxThreshold: 1
-  m_UseAutomaticThresholds: 1
-  m_NormalizedBlendValues: 0
-  m_BlendType: 0
 --- !u!1101 &6782079585291628806
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -906,32 +872,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &8752325539556177267
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Jump Tree
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 5849874873952108459}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &8870011122246313130
 AnimatorState:
   serializedVersion: 6
@@ -939,7 +879,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stable Sword Outward Slash 0
+  m_Name: Stable Sword Outward Slash
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -953,7 +893,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 24444b5bb0de0f949b9b1f65d1862967, type: 2}
+  m_Motion: {fileID: 7400000, guid: 11800bcf000c4ce438cfdbf95428449a, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
