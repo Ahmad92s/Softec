@@ -45,6 +45,7 @@ public class PlayerAnimation : MonoBehaviour
         if (playerCombat.attack)
         {
             Attack("attack1");
+            animator.SetFloat("Idle Blend", 1);
         }
         if (playerMovement.dodge)
         {
@@ -80,7 +81,7 @@ public class PlayerAnimation : MonoBehaviour
         for (int i = 0; i < 100; i++)
         {
             animator.SetFloat("Idle Blend", animator.GetFloat("Idle Blend") - 0.01f);
-            yield return new WaitForSeconds(0.0025f);
+            yield return new WaitForSeconds(0.25f);
         }
         //animator.SetFloat("Idle Blend", 0f);
     }

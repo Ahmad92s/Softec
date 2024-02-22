@@ -6,10 +6,10 @@ using DG.Tweening;
 
 public class EnemyShooting : MonoBehaviour
 {
-    NavMeshAgent agent;
     Enemy enemyInfo;
+    EnemyMovement enemyMovement;
 
-    bool isShooting;
+    bool isAttacking;
     internal bool shotTaken;
 
     [SerializeField]
@@ -25,34 +25,40 @@ public class EnemyShooting : MonoBehaviour
         shotWarningTime,
         shotForce;
 
+    [SerializeField]
+    bool rangedEnemy;
+
     private void Awake()
     {
-        agent = GetComponent<NavMeshAgent>();
         enemyInfo = GetComponent<Enemy>();
+        enemyMovement = GetComponent<EnemyMovement>();
     }
 
     private void Update()
     {
         if (!enemyInfo.died)
         {
-            agent.SetDestination(Player.instance.transform.position);
-
-            if (agent.remainingDistance <= agent.stoppingDistance)
+            if (enemyMovement.closeEnough)
             {
-                transform.LookAt(new Vector3(Player.instance.transform.position.x, transform.position.y, Player.instance.transform.position.z));
-
                 //if not stunned
                 if (enemyInfo.timeSinceLastHit >= enemyInfo.coolDownTime)
                 {
-                    if (!isShooting)
+                    if (!isAttacking)
                     {
-                        StartCoroutine(Shoot());
+                        if (rangedEnemy)
+                        {
+                            StartCoroutine(Shoot());
+                        }
+                        else
+                        {
+                            StartCoroutine(DoMeleeAttack());
+                        }
                     }
                 }
                 else
                 {
                     StopAllCoroutines();
-                    isShooting = false;
+                    isAttacking = false;
                 }
             }
         }
@@ -61,7 +67,7 @@ public class EnemyShooting : MonoBehaviour
 
     IEnumerator Shoot()
     {
-        isShooting = true;
+        isAttacking = true;
         yield return new WaitForSeconds(Random.Range(minShootTime, maxShootTime));
         aimLineRenderer.material.DOColor(Color.red, shotWarningTime);
         yield return new WaitForSeconds(shotWarningTime + 0.2f);
@@ -73,6 +79,11 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         aimLineRenderer.enabled = true;
 
-        isShooting = false;
+        isAttacking = false;
+    }
+
+    IEnumerator DoMeleeAttack()
+    {
+        yield return null;
     }
 }

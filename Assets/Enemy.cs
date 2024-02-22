@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -26,13 +27,14 @@ public class Enemy : MonoBehaviour
             if(health <= 0)
             {
                 died = true;
-                StartCoroutine(Die(other));
+                StartCoroutine(Die());
             }
         }
     }
 
-    IEnumerator Die(Collider other)
+    IEnumerator Die()
     {
+        GetComponent<NavMeshAgent>().speed = 0;
         Instantiate(destroyFX, transform.position, Quaternion.identity);
         var rb = GetComponent<Rigidbody>();
         rb.isKinematic = false;

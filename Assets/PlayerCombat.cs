@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
 {
-    [SerializeField]
     PlayerMovement playerMovement;
+    PlayerAnimation playerAnimation;
 
     internal bool attack, isAttacking;
     internal string attackName;
@@ -13,6 +13,11 @@ public class PlayerCombat : MonoBehaviour
     float timeSinceLastAttack, coolDownTime = 0.2f;
 
 
+    private void Awake()
+    {
+        playerMovement = GetComponent<PlayerMovement>();
+        playerAnimation = GetComponent<PlayerAnimation>();
+    }
     void Update()
     {
         //Attack
@@ -31,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         isAttacking = true;
+        playerAnimation.StopAllCoroutines();
         timeSinceLastAttack = 0;
 
         attack = true;
