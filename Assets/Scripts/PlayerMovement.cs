@@ -6,6 +6,8 @@ using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Player playerInfo;
+
     public Rigidbody rb;
     public Transform cam;
 
@@ -24,8 +26,18 @@ public class PlayerMovement : MonoBehaviour
     //Movement
     internal bool isMoving, isGrounded, isRunning, jump, jumpAnim, dodge;
 
+
+    private void Awake()
+    {
+        playerInfo = GetComponent<Player>();
+    }
     private void LateUpdate()
     {
+        if (playerInfo.stunned || playerInfo.died)
+        {
+            return;
+        }
+
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 

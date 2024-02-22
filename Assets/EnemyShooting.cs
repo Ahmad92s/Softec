@@ -36,7 +36,7 @@ public class EnemyShooting : MonoBehaviour
 
     private void Update()
     {
-        if (!enemyInfo.died)
+        if (!enemyInfo.died && !Player.instance.died)
         {
             if (enemyMovement.closeEnough)
             {

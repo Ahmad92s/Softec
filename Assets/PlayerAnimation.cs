@@ -14,6 +14,8 @@ public class PlayerAnimation : MonoBehaviour
     [SerializeField]
     Animator animator;
 
+    bool died;
+
 
     private void Awake()
     {
@@ -56,6 +58,16 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerMovement.jumpAnim = false;
             animator.SetTrigger("Jump");
+        }
+
+        if (!died)
+        {
+            if (playerInfo.died)
+            {
+                died = playerInfo.died;
+                animator.SetBool("Died", true);
+                animator.SetTrigger("DiedTrig");
+            }
         }
     }
 

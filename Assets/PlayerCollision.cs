@@ -27,7 +27,22 @@ public class PlayerCollision : MonoBehaviour
             {
                 playerInfo.health -= playerInfo.swordDamage;
             }
+
             playerInfo.gotHit = true;
+            playerInfo.stunned = true;
+            StopAllCoroutines();
+            StartCoroutine(UnStun());
+
+            if(playerInfo.health <= 0)
+            {
+                playerInfo.died = true;
+            }
         }
+    }
+
+    IEnumerator UnStun()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerInfo.stunned = false;
     }
 }

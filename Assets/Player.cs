@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
         smallBulletDamage,
         swordDamage;
 
-    internal bool gotHit;
+    internal bool gotHit, stunned, died;
 
     private void Awake()
     {
