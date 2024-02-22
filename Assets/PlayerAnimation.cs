@@ -6,13 +6,21 @@ using DG.Tweening;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [SerializeField]
+    Player playerInfo;
     PlayerMovement playerMovement;
-    [SerializeField]
     PlayerCombat playerCombat;
+
 
     [SerializeField]
     Animator animator;
+
+
+    private void Awake()
+    {
+        playerInfo = GetComponent<Player>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerCombat = GetComponent<PlayerCombat>();
+    }
 
     private void Update()
     {
@@ -22,6 +30,12 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("isRunning", playerMovement.isRunning);
         animator.SetBool("isAttacking", playerCombat.isAttacking);
 
+
+        if (playerInfo.gotHit)
+        {
+            playerInfo.gotHit = false;
+            animator.SetTrigger("hitReact");
+        }
 
         if (!playerCombat.isAttacking && animator.GetFloat("Idle Blend") == 1)
         {

@@ -12,6 +12,7 @@ public class PlayerCombat : MonoBehaviour
 
     float timeSinceLastAttack, coolDownTime = 0.2f;
 
+
     void Update()
     {
         //Attack

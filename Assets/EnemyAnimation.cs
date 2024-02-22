@@ -10,6 +10,7 @@ public class EnemyAnimation : MonoBehaviour
 
     NavMeshAgent agent;
     Enemy enemyInfo;
+    EnemyShooting controller;
 
     bool died;
 
@@ -17,6 +18,7 @@ public class EnemyAnimation : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyInfo = GetComponent<Enemy>();
+        controller = GetComponent<EnemyShooting>();
     }
 
     private void Update()
@@ -46,6 +48,11 @@ public class EnemyAnimation : MonoBehaviour
             {
                 animator.SetTrigger("hitReact");
                 enemyInfo.gotHit = false;
+            }
+            else if (controller.shotTaken)
+            {
+                animator.SetTrigger("Shoot");
+                controller.shotTaken = false;
             }
         }
     }

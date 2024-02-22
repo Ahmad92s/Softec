@@ -10,8 +10,14 @@ public class Player : MonoBehaviour
         health = 100,
         attackPower = 15;
 
+    [SerializeField]
+    internal int smallBulletDamage;
+
+    internal bool gotHit;
+
     private void Awake()
     {
         instance = this;
     }
+
 }

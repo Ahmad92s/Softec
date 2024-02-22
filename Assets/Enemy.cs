@@ -6,13 +6,14 @@ public class Enemy : MonoBehaviour
 {
     public int health = 100;
     internal bool gotHit, died;
+    internal float timeSinceLastHit, coolDownTime = 1f;
+
+    [SerializeField]
+    GameObject destroyFX;
 
     private void Update()
     {
-        if(health <= 0)
-        {
-            died = true;
-        }
+        timeSinceLastHit += Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +22,25 @@ public class Enemy : MonoBehaviour
         {
             health -= Player.instance.attackPower;
             gotHit = true;
+            timeSinceLastHit = 0f;
+            if(health <= 0)
+            {
+                died = true;
+                StartCoroutine(Die(other));
+            }
         }
+    }
+
+    IEnumerator Die(Collider other)
+    {
+        Instantiate(destroyFX, transform.position, Quaternion.identity);
+        var rb = GetComponent<Rigidbody>();
+        rb.isKinematic = false;
+        rb.AddForce(-transform.forward * 200f);
+        yield return new WaitForSeconds(0.8f);
+        
+        rb.isKinematic = true;
+        GetComponent<BoxCollider>().enabled = false;
+
     }
 }
