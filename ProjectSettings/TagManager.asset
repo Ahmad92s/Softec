@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - FxTemporaire
   - EnemyBullet
+  - EnemySword
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
         attackPower = 15;
 
     [SerializeField]
-    internal int smallBulletDamage;
+    internal int 
+        smallBulletDamage,
+        swordDamage;
 
     internal bool gotHit;
 
