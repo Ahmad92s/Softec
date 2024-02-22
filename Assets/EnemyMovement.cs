@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (!enemyInfo.died)
         {
-            Debug.Log("ALIVE!");
             agent.SetDestination(Player.instance.transform.position);
 
             if (agent.remainingDistance <= agent.stoppingDistance)

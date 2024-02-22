@@ -77,11 +77,11 @@ public class PlayerAnimation : MonoBehaviour
     IEnumerator SetNeutralState()
     {
         animator.SetFloat("Idle Blend", 1);
-        yield return new WaitForSeconds(2f);
-        for (int i = 0; i < 100; i++)
+        yield return new WaitForSeconds(10f);
+        for (int i = 0; i < 1000; i++)
         {
-            animator.SetFloat("Idle Blend", animator.GetFloat("Idle Blend") - 0.01f);
-            yield return new WaitForSeconds(0.25f);
+            animator.SetFloat("Idle Blend", animator.GetFloat("Idle Blend") - 0.001f);
+            yield return new WaitForSeconds(0.0025f);
         }
         //animator.SetFloat("Idle Blend", 0f);
     }

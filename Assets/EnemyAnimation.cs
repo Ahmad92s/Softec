@@ -14,6 +14,9 @@ public class EnemyAnimation : MonoBehaviour
 
     bool died;
 
+    [SerializeField]
+    bool meleeEnemy;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -51,7 +54,15 @@ public class EnemyAnimation : MonoBehaviour
             }
             else if (controller.shotTaken)
             {
-                animator.SetTrigger("Shoot");
+                if (meleeEnemy)
+                {
+                    string attack = "Attack" + Random.Range(1, 3).ToString();
+                    animator.SetTrigger(attack);
+                }
+                else
+                {
+                    animator.SetTrigger("Shoot");
+                }
                 controller.shotTaken = false;
             }
         }

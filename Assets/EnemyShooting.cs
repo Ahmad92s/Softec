@@ -84,6 +84,11 @@ public class EnemyShooting : MonoBehaviour
 
     IEnumerator DoMeleeAttack()
     {
-        yield return null;
+        shotTaken = true;
+        isAttacking = true;
+
+        yield return new WaitForSeconds(Random.Range(minShootTime, maxShootTime));
+
+        isAttacking = false;
     }
 }
