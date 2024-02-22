@@ -72,6 +72,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerInfo.stunned || playerInfo.died)
+        {
+            horizontal = 0;
+            vertical = 0;
+            return;
+        }
+
         if (isMoving)
         {
             Move();

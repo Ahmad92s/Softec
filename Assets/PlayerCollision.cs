@@ -9,6 +9,9 @@ public class PlayerCollision : MonoBehaviour
     [SerializeField]
     GameObject bulletHitFx;
 
+    [SerializeField]
+    float stunTime;
+
     private void Awake()
     {
         playerInfo = GetComponent<Player>();
@@ -42,7 +45,7 @@ public class PlayerCollision : MonoBehaviour
 
     IEnumerator UnStun()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(stunTime);
         playerInfo.stunned = false;
     }
 }
