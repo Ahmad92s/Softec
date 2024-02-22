@@ -9,10 +9,14 @@ public class EnemyAnimation : MonoBehaviour
     Animator animator;
 
     NavMeshAgent agent;
+    Enemy enemyInfo;
+
+    bool died;
 
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyInfo = GetComponent<Enemy>();
     }
 
     private void Update()
@@ -24,6 +28,25 @@ public class EnemyAnimation : MonoBehaviour
         else
         {
             animator.SetBool("isRunning", false);
+        }
+
+        if(enemyInfo.health <= 0)
+        {
+            if (!died)
+            {
+                died = true;
+                animator.SetTrigger("DiedTrig");
+                animator.SetBool("Died", died);
+            }
+        }
+
+        if (!died)
+        {
+            if (enemyInfo.gotHit)
+            {
+                animator.SetTrigger("hitReact");
+                enemyInfo.gotHit = false;
+            }
         }
     }
 }

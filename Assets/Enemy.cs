@@ -5,13 +5,13 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int health = 100;
+    internal bool gotHit, died;
 
     private void Update()
     {
-        if (health <= 0)
+        if(health <= 0)
         {
-            gameObject.SetActive(false);
-            Debug.Log("died");
+            died = true;
         }
     }
 
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         if(other.tag == "PlayerSword")
         {
             health -= Player.instance.attackPower;
+            gotHit = true;
         }
     }
 }
