@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     {
         if(other.tag == "PlayerSword")
         {
-            health -= 10;
+            health -= Player.instance.attackPower;
         }
     }
 }
