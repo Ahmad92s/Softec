@@ -12,6 +12,8 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI ComboText;
 
+
+
     private void Start()
     {
         comboGraphicDefPosition = ComboGraphic.transform.localPosition;

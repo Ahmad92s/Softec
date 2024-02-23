@@ -33,6 +33,9 @@ public class PlayerCollision : MonoBehaviour
 
             playerInfo.gotHit = true;
             playerInfo.stunned = true;
+
+            Messenger.Broadcast(GameEvent.Player_Damage);
+
             StopAllCoroutines();
             StartCoroutine(UnStun());
 

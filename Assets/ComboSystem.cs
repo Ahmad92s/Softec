@@ -44,7 +44,7 @@ public class ComboSystem : MonoBehaviour
         }
         GameManager.instance.score += count * 50;
         timeSinceLastHit = 0;
-        Debug.Log(count);
+        //Debug.Log(count);
     }
 
 

@@ -6,4 +6,8 @@ public static class GameEvent
     public static string Player_Died = "PlayerDied";
     public static string Combo_Ended = "ComboEnded";
     public static string Combo_Started = "ComboStarted";
+
+    public static string Player_Damage = "PlayerDamage";
+
+    public static string Level_Complete = "LevelComplete";
 }

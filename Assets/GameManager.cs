@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     internal int score;
 
+    public GameObject Act2ClosingScene;
+
 
     private void Awake()
     {
@@ -16,14 +18,20 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Messenger.AddListener(GameEvent.Player_Died, OnDeath);
+        Messenger.AddListener(GameEvent.Level_Complete, OnActComplete);
     }
     private void OnDisable()
     {
         Messenger.RemoveListener(GameEvent.Player_Died, OnDeath);
+        Messenger.RemoveListener(GameEvent.Level_Complete, OnActComplete);
     }
 
     void OnDeath()
     {
 
+    }
+    void OnActComplete()
+    {
+        Act2ClosingScene.SetActive(true);
     }
 }
