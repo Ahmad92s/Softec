@@ -122,8 +122,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (isRunning)
         {
-            rb.AddForce(transform.forward * jumpForce);
             dodge = true;
+            rb.AddForce(transform.forward * jumpForce);
         }
         else
         {
