@@ -8,8 +8,11 @@ public class ComboSystem : MonoBehaviour
     public float coolDownTime;
     float timeSinceLastHit;
 
+    public static ComboSystem instance;
+
     private void Start()
     {
+        instance = this;
         count = 0;
 
         Messenger.AddListener(GameEvent.Player_Hit, OnHit);
@@ -29,7 +32,6 @@ public class ComboSystem : MonoBehaviour
         else
         {
             timeSinceLastHit += Time.deltaTime;
-            Debug.Log(timeSinceLastHit);
         }
     }
 
