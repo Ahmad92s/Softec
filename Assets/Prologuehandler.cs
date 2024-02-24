@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Prologuehandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public float prologueTime = 79;
+    public string nextScene;
+
+    private void Start()
     {
-        
+        StartCoroutine(ChangeScene(nextScene));
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator ChangeScene(string sceneName)
     {
-        
+        yield return new WaitForSeconds(prologueTime);
+        SceneManager.LoadScene(sceneName);
     }
 }
