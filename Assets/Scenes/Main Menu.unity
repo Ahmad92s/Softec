@@ -655,6 +655,18 @@ MonoBehaviour:
           m_StringArgument: Prologue
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 973668844}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: StartNewGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &212621162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1518,7 +1530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 618899585}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 973668844}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &618899585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1859,6 +1883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ComboGraphic: {fileID: 0}
   ComboText: {fileID: 0}
+  pausePanel: {fileID: 0}
 --- !u!1 &992599737 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2bf4090c7948539499c190b739e2daaf,
