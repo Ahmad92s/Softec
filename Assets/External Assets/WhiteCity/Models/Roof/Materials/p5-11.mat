@@ -131,7 +131,7 @@ Material:
     - _ReceiveShadows: 1
     - _SHADING_STYLE: 0
     - _ShadowsFloor: 0.25
-    - _Smoothness: 1
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpecularNoiseSize: 1
@@ -147,7 +147,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 2.54333, b: 7.3772116, a: 1}
+    - _EmissionColor: {r: 2.9476664, g: 3.6744332, b: 13.584906, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []

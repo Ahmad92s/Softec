@@ -12,7 +12,7 @@ public class PlayerSwordFX : MonoBehaviour
         if(other.tag == "Enemy")
         {
             Instantiate(hitFX, other.ClosestPoint(transform.position), Quaternion.identity);
-
+            Messenger.Broadcast(GameEvent.Player_Hit);
         }
     }
 }

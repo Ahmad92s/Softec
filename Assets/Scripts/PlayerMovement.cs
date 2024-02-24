@@ -25,11 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     //Movement
     internal bool isMoving, isGrounded, isRunning, jump, jumpAnim, dodge;
+    float dodgeCoolTime = 0.95f, timeSinceDodge = 0f;
 
 
     private void Awake()
     {
         playerInfo = GetComponent<Player>();
+    }
+
+    private void Update()
+    {
+        timeSinceDodge += Time.deltaTime;
     }
     private void LateUpdate()
     {
@@ -72,6 +78,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (playerInfo.stunned || playerInfo.died)
+        {
+            horizontal = 0;
+            vertical = 0;
+            return;
+        }
+
         if (isMoving)
         {
             Move();
@@ -115,8 +128,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (isRunning)
         {
-            rb.AddForce(transform.forward * jumpForce);
+            if(timeSinceDodge < dodgeCoolTime)
+            {
+                return;
+            }
+
+            timeSinceDodge = 0f;
             dodge = true;
+            rb.AddForce(transform.forward * jumpForce);
         }
         else
         {

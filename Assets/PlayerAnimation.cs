@@ -37,6 +37,10 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerInfo.gotHit = false;
             animator.SetTrigger("hitReact");
+            if (!died)
+            {
+                PlayerAudio.instance.PlaySound("hurt");
+            }
         }
 
         if (!playerCombat.isAttacking && animator.GetFloat("Idle Blend") == 1)
@@ -53,11 +57,13 @@ public class PlayerAnimation : MonoBehaviour
         {
             playerMovement.dodge = false;
             animator.SetTrigger("Dodge");
+            PlayerAudio.instance.PlaySound("dodge");
         }
         else if (playerMovement.jumpAnim)
         {
             playerMovement.jumpAnim = false;
             animator.SetTrigger("Jump");
+            PlayerAudio.instance.PlaySound("jump");
         }
 
         if (!died)
@@ -83,6 +89,7 @@ public class PlayerAnimation : MonoBehaviour
         //}
         
         animator.SetTrigger(attack);
+        PlayerAudio.instance.PlaySound("attack");
         playerCombat.attack = false;
     }
 

@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject destroyFX;
 
+    public bool isBoss;
+
+    internal bool invincibe = false;
+
     private void Update()
     {
         timeSinceLastHit += Time.deltaTime;
@@ -19,8 +23,16 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (invincibe)
+        {
+            return;
+        }
         if(other.tag == "PlayerSword")
         {
+            if (isBoss)
+            {
+                Messenger.Broadcast(GameEvent.Boss_Damage);
+            }
             health -= Player.instance.attackPower;
             gotHit = true;
             timeSinceLastHit = 0f;
@@ -44,5 +56,10 @@ public class Enemy : MonoBehaviour
         rb.isKinematic = true;
         GetComponent<BoxCollider>().enabled = false;
 
+        if (isBoss)
+        {
+            Messenger.Broadcast(GameEvent.Level_Complete);
+            Messenger.Broadcast(GameEvent.Boss_Died);
+        }
     }
 }
