@@ -13,7 +13,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     internal int 
         smallBulletDamage,
-        swordDamage;
+        swordDamage,
+        bigSwordDamage;
 
     internal bool gotHit, stunned, died;
 

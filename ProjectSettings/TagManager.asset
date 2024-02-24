@@ -10,6 +10,8 @@ TagManager:
   - FxTemporaire
   - EnemyBullet
   - EnemySword
+  - BigEnemySword
+  - Fireball
   layers:
   - Default
   - TransparentFX

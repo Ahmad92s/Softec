@@ -87,6 +87,11 @@ public class EnemyShooting : MonoBehaviour
         shotTaken = true;
         isAttacking = true;
 
+        if (enemyInfo.isBoss)
+        {
+            Messenger.Broadcast(GameEvent.Start_Boss_Attack);
+        }
+
         yield return new WaitForSeconds(Random.Range(minShootTime, maxShootTime));
 
         isAttacking = false;

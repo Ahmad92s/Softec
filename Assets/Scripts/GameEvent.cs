@@ -10,4 +10,5 @@ public static class GameEvent
     public static string Player_Damage = "PlayerDamage";
 
     public static string Level_Complete = "LevelComplete";
+    public static string Start_Boss_Attack = "StartBossAttack";
 }

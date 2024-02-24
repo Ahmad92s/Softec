@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca42abb66682e334ba32bb4034e54732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   destroyFX: {fileID: 4843708410680064942, guid: 1820839af4ea0e04fbd917998558a509,
     type: 3}
 --- !u!114 &4179799244200963144
@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2503692323009828513}
+  meleeEnemy: 0
 --- !u!195 &7660132319620444492
 NavMeshAgent:
   m_ObjectHideFlags: 0

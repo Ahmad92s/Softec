@@ -17,6 +17,9 @@ public class EnemyAnimation : MonoBehaviour
     [SerializeField]
     bool meleeEnemy;
 
+    [SerializeField]
+    int totalAttacks = 2;
+
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -56,7 +59,11 @@ public class EnemyAnimation : MonoBehaviour
             {
                 if (meleeEnemy)
                 {
-                    string attack = "Attack" + Random.Range(1, 3).ToString();
+                    string attack = "Attack" + Random.Range(1, totalAttacks + 1).ToString();
+                    if(attack == "Attack3")
+                    {
+                        StartCoroutine(FreezeRotationTemp());
+                    }
                     animator.SetTrigger(attack);
                 }
                 else
@@ -66,5 +73,20 @@ public class EnemyAnimation : MonoBehaviour
                 controller.shotTaken = false;
             }
         }
+    }
+
+    IEnumerator FreezeRotationTemp()
+    {
+        float 
+            speed = agent.speed,
+            angularSpeed = agent.angularSpeed;
+
+        agent.angularSpeed = 0;
+        agent.speed = 0;
+
+        yield return new WaitForSeconds(5f);
+
+        agent.speed = speed;
+        agent.angularSpeed = angularSpeed;
     }
 }

@@ -19,7 +19,7 @@ public class PlayerCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.transform.tag == "EnemyBullet" || other.transform.tag == "EnemySword")
+        if (other.transform.tag == "EnemyBullet" || other.transform.tag == "EnemySword" || other.transform.tag == "BigEnemySword")
         {
             Instantiate(bulletHitFx, transform.position + Vector3.up, Quaternion.identity);
             if(other.transform.tag == "EnemyBullet")
@@ -29,6 +29,10 @@ public class PlayerCollision : MonoBehaviour
             else if(other.transform.tag == "EnemySword")
             {
                 playerInfo.health -= playerInfo.swordDamage;
+            }
+            else if (other.transform.tag == "BigEnemySword")
+            {
+                playerInfo.health -= playerInfo.bigSwordDamage;
             }
 
             playerInfo.gotHit = true;

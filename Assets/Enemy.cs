@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     GameObject destroyFX;
 
+    public bool isBoss;
+
+    internal bool invincibe = false;
+
     private void Update()
     {
         timeSinceLastHit += Time.deltaTime;
@@ -19,6 +23,10 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (invincibe)
+        {
+            return;
+        }
         if(other.tag == "PlayerSword")
         {
             health -= Player.instance.attackPower;
