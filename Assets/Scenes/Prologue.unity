@@ -2858,7 +2858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prologueTime: 79
-  nextScene: Act 2
+  nextScene: Act 1
 --- !u!1 &1133547143
 GameObject:
   m_ObjectHideFlags: 0

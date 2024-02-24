@@ -7,8 +7,8 @@ public class EnemyFireball : MonoBehaviour
     [SerializeField]
     GameObject Explosion;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Instantiate(Explosion, collision.contacts[0].point, Quaternion.identity);
+        
     }
 }

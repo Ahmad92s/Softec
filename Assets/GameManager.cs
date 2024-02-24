@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject Act2ClosingScene;
 
+    public GameObject failScreen;
+
 
     private void Awake()
     {
@@ -28,10 +30,20 @@ public class GameManager : MonoBehaviour
 
     void OnDeath()
     {
-
+        StartCoroutine(ShowFailScreen());
     }
     void OnActComplete()
     {
+        if(PlayerPrefs.GetInt("Progress") == 0)
+        {
+            PlayerPrefs.SetInt("Progress", 1);
+        }
         Act2ClosingScene.SetActive(true);
+    }
+
+    IEnumerator ShowFailScreen()
+    {
+        yield return new WaitForSeconds(2.5f);
+        failScreen.SetActive(true);
     }
 }

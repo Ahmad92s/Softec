@@ -41,7 +41,7 @@ public class EnemyShooting : MonoBehaviour
             if (enemyMovement.closeEnough)
             {
                 //if not stunned
-                if (enemyInfo.timeSinceLastHit >= enemyInfo.coolDownTime)
+                if (enemyInfo.isBoss || (enemyInfo.timeSinceLastHit >= enemyInfo.coolDownTime && !enemyInfo.isBoss))
                 {
                     if (!isAttacking)
                     {

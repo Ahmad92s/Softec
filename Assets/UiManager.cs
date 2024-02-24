@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class UiManager : MonoBehaviour
     Vector3 comboGraphicDefPosition;
     [SerializeField]
     TextMeshProUGUI ComboText;
-
+    [SerializeField]
+    GameObject pausePanel;
 
 
     private void Start()
@@ -28,6 +30,55 @@ public class UiManager : MonoBehaviour
         Messenger.RemoveListener(GameEvent.Combo_Started, ShowComboCount);
         Messenger.RemoveListener(GameEvent.Combo_Ended, DisableComboCount);
     }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
+
+    public void EnableObj(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+    public void DisableObj(GameObject obj)
+    {
+        obj.SetActive(false);
+    }
+
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
+    public void Pause()
+    {
+        if(SceneManager.GetActiveScene().name == "Act 1")
+        {
+            if (Time.timeScale == 0)
+            {
+                Time.timeScale = 1;
+                DisableObj(pausePanel);
+                Camera.main.GetComponent<AudioListener>().enabled = true;
+            }
+            else
+            {
+                Time.timeScale = 0;
+                EnableObj(pausePanel);
+                Camera.main.GetComponent<AudioListener>().enabled = false;
+            }
+        }
+    }
+
 
     void ShowComboCount()
     {

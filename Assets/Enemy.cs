@@ -29,6 +29,10 @@ public class Enemy : MonoBehaviour
         }
         if(other.tag == "PlayerSword")
         {
+            if (isBoss)
+            {
+                Messenger.Broadcast(GameEvent.Boss_Damage);
+            }
             health -= Player.instance.attackPower;
             gotHit = true;
             timeSinceLastHit = 0f;
@@ -52,5 +56,9 @@ public class Enemy : MonoBehaviour
         rb.isKinematic = true;
         GetComponent<BoxCollider>().enabled = false;
 
+        if (isBoss)
+        {
+            Messenger.Broadcast(GameEvent.Level_Complete);
+        }
     }
 }

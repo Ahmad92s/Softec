@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour
 {
-    Enemy info;
+    internal Enemy info;
     [SerializeField]
     GameObject forceField;
 
+    public static BossController instance;
+
     private void Start()
     {
+        instance = this;
+
         info = GetComponent<Enemy>();
         Messenger.AddListener(GameEvent.Start_Boss_Attack, OnAttackStart);
     }
