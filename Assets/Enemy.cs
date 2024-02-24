@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
         if (isBoss)
         {
             Messenger.Broadcast(GameEvent.Level_Complete);
+            Messenger.Broadcast(GameEvent.Boss_Died);
         }
     }
 }

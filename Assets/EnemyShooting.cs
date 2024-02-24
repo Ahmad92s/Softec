@@ -73,6 +73,9 @@ public class EnemyShooting : MonoBehaviour
         yield return new WaitForSeconds(shotWarningTime + 0.2f);
         aimLineRenderer.enabled = false;
         shotTaken = true;
+
+        GetComponent<AudioSource>().Play();
+
         var bullet = Instantiate(projectile, aimLineRenderer.transform.parent.transform.position, Quaternion.identity);
         bullet.GetComponent<Rigidbody>().AddForce(aimLineRenderer.transform.parent.transform.forward * shotForce);
         aimLineRenderer.material.DOColor(Color.yellow, 0f);
@@ -87,12 +90,13 @@ public class EnemyShooting : MonoBehaviour
         shotTaken = true;
         isAttacking = true;
 
+
+        yield return new WaitForSeconds(Random.Range(minShootTime, maxShootTime));
         if (enemyInfo.isBoss)
         {
             Messenger.Broadcast(GameEvent.Start_Boss_Attack);
         }
 
-        yield return new WaitForSeconds(Random.Range(minShootTime, maxShootTime));
 
         isAttacking = false;
     }

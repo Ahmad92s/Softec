@@ -84,7 +84,7 @@ public class EnemyAnimation : MonoBehaviour
         agent.angularSpeed = 0;
         agent.speed = 0;
 
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(6.5f);
 
         agent.speed = speed;
         agent.angularSpeed = angularSpeed;

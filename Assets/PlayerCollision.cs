@@ -50,6 +50,7 @@ public class PlayerCollision : MonoBehaviour
             if(playerInfo.health <= 0)
             {
                 playerInfo.died = true;
+                Messenger.Broadcast(GameEvent.Player_Died);
             }
         }
     }
