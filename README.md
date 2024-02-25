@@ -5,7 +5,7 @@ The game follows the story of a samurai video game character from 1989 who makes
 It was decided to take a narrative based approach towards the theme of the game jam, which is why I decided to go the extra mile for cutscenes. 
 
 >Gameplay
-  -The game primarily follows a hitbox based hack and slash gameplay inspired by Batman arkham series' combat and the Yakuza series.
+>>The game primarily follows a hitbox based hack and slash gameplay inspired by Batman arkham series' combat and the Yakuza series.
 
 >Player Behavior:
   -The player controller is rigidbody based.
