@@ -1,8 +1,9 @@
 Video Link: https://drive.google.com/drive/folders/16sjsbu9_h6jYF0u1nkDXfSrqt-dUnVEj?usp=sharing
 (I tried cutting it to 4 minutes, but filmora suprised me with a huge watermark and windows editor refuses to save changes, so please accept the 5 minute version)
 
-The game follows the story of a samurai video game character from 1989 who makes a return to the modern world, 100 years later. 
-It was decided to take a narrative based approach towards the theme of the game jam, which is why I decided to go the extra mile for cutscenes. 
+>The Story
+>>The game follows the story of a samurai video game character from 1989 who makes a return to the modern world, 100 years later. 
+>>It was decided to take a narrative based approach towards the theme of the game jam, which is why I decided to go the extra mile for cutscenes. 
 
 >Gameplay
 >>The game primarily follows a hitbox based hack and slash gameplay inspired by Batman arkham series' combat and the Yakuza series.
