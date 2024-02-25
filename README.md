@@ -7,14 +7,14 @@ It was decided to take a narrative based approach towards the theme of the game 
 >Gameplay
 >>The game primarily follows a hitbox based hack and slash gameplay inspired by Batman arkham series' combat and the Yakuza series.
 
->Player Behavior:
+>Player Behavior
 >>The player controller is rigidbody based.
 >>The player is given fast paced traversal mechanics with quick movements.
 >>The player is allowed to walk, run, jump and dodge. Dodging and jumping covers a large distance, giving the player advantage against a swarm of enemies.
 >>Along with that, there are several combos to play with, and a running attack. Players can do a standing combo, a directional combo, and anything they choose to mix and match with.
 
 
->Enemy Behavior:
+>Enemy Behavior
 >>There are 2 types of enemies. The melee attackers with swords, and ranged attacker with laser guns.
 >>In a game like this, it is important to design it in such a way that the player does not feel like being cheated against. To do this, I added a long build up animation for melee soldiers' attacks and a laser aim color change for ranged attackers.
 >>The lasers turn red just when the enemmy is about to shoot, allowing them to dodge in time.
